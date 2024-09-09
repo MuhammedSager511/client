@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
+import { User } from './models/login';
 
 @Component({
   selector: 'app-root',
@@ -8,30 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'client';
-  baseURL:string ="https://localhost:7002/api/";
-  Message:any;
 
 
-  constructor(private http:HttpClient){
+
+  constructor(private authService:AuthService){
 
   }
 
-  ngOnInit(): void {
-      this.getMessage();
+  ngOnInit(): void {  
+      this.setCurrentUser();
   }
 
 
 
 
-  getMessage(){
-    return this.http.get(this.baseURL+'Messages').subscribe({
-      next:(res)=>{
-        this.Message=res;
-        console.log(res);
-      },
-       error:(err)=>{
-        console.error(err);
-       }
-    })
+
+  setCurrentUser(){
+    const lsUser=localStorage.getItem('user')
+    if(lsUser){
+      const user:User=JSON.parse(lsUser);
+      this.authService.setCurrentUser(user);
+    }
   }
 }

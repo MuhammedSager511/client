@@ -1,28 +1,8 @@
-<h1>{{title}}</h1>
+<app-nav></app-nav>
 
-<hr>
-<div
-  class="table-responsive"
->
-  <table
-    class="table "
-  >
-    <thead>
-      <tr>
-        <th scope="col">content</th>
-        <th scope="col">senderUserName</th>
-        <th scope="col">recipientUserName</th>
-        <th scope="col">dateRead</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="" *ngFor="let item of Message">
-        <td >{{item.content}}</td>
-        <td>{{item.senderUserName}}</td>
-        <td>{{item.recipientUserName}}</td>
-        <td>{{item.dateRead}}</td>
-      </tr>
-      
-    </tbody>
-  </table>
+
+
+<div class="container mt-3">
+    <router-outlet></router-outlet>
 </div>
+

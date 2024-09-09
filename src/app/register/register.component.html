@@ -1,0 +1,46 @@
+<div class="contain">
+    <h2 class="text-center text-primary">Sing up</h2>
+    <hr>
+    <form [formGroup]="regisrterForm" (ngSubmit)="register()" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
+   
+        <div class="mb-3">
+            <!-- <label for="" class="form-label">User Name :</label> -->
+            <input formControlName="userName" 
+                type="text"
+                class="form-control"
+                placeholder="UserName"
+            />
+            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+
+        <div class="mb-3">
+            
+            <input formControlName="email" 
+                type="email"
+                class="form-control"
+                placeholder="Email"
+            />
+            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+
+        <div class="mb-3">
+           
+            <input formControlName="password"
+                type="password"
+                class="form-control"
+                placeholder="Password"
+               
+                autocomplete="new-password"
+            
+                 
+            />
+            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+             
+        <div class="from-group text-center">
+          <button [disabled]="regisrterForm.invalid" type="submit" class="btn btn-success me-2">Register</button>
+          <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>
+ 
