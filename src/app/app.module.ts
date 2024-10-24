@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from "@angular/common/http"
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http"
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -13,11 +13,17 @@ import { MemberDetailComponent } from './members/member-detail/member-detail.com
 import { ListsComponent } from './lists/lists.component';
 import { MessagesComponent } from './messages/messages.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { JwtInterceptor } from './interceptors/jwt.interceptor';
+import { MemberCardComponent } from './members/member-card/member-card.component';
+import { ShareModule } from './modules/share.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
+    MemberCardComponent,
+    MemberListComponent,
     HomeComponent,
     RegisterComponent,
     MemberListComponent,
@@ -32,10 +38,13 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HttpClientModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ShareModule
 
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

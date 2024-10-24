@@ -30,7 +30,6 @@
               "src/assets"
             ],
             "styles": [
-            
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "node_modules/alertifyjs/build/css/alertify.min.css",
@@ -39,9 +38,12 @@
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
-                 "node_modules/@fortawesome/fontawesome-free/js/all.js",
-                  "node_modules/bootstrap/dist/js/bootstrap.min.js",
-                  "node_modules/alertifyjs/src/js/alert.js"
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/alertifyjs/src/js/alert.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "alertifyjs"
             ]
           },
           "configurations": {
