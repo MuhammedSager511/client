@@ -2,6 +2,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/assets/environments/environment';
 import { Member } from '../models/member';
+import { updateMember } from '../models/member-update';
 
 
 
@@ -25,5 +26,8 @@ export class MembersService {
 
   getMember(userName:string){
     return this.http.get<Member>(this.baseURL+`Accounts/get-all-userName/${userName}`);
+  }
+  updateMember(model:updateMember){
+    return this.http.put<updateMember>(this.baseURL+'Accounts/update-current-member',model);
   }
 }

@@ -24,8 +24,14 @@
           Welcom {{user.userName | uppercase}}
         </button>
         <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">Edit Profile</a></li>
-          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;">Logout</a></li>
+          <li><a class="dropdown-item" routerLink="/members/edit"> 
+            <i class="fas fa-user-edit"></i> 
+            Edit Profile</a>
+          </li>
+          <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;">
+            <i class="fas fa-sign-out-alt"></i> 
+            Logout</a>
+          </li>
        
         </ul>
       </div>
