@@ -1,8 +1,9 @@
-import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHandler, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/assets/environments/environment';
 import { Member } from '../models/member';
 import { updateMember } from '../models/member-update';
+import { Observable } from 'rxjs';
 
 
 
@@ -29,5 +30,20 @@ export class MembersService {
   }
   updateMember(model:updateMember){
     return this.http.put<updateMember>(this.baseURL+'Accounts/update-current-member',model);
+  
+  }
+  uploadMemberPhoto(fail:any){
+    // const params=new HttpParams({fromObject:formDate})
+    // return this.http.post(this.baseURL+'Accounts/upload-photo',params.toString(),{
+    //   headers:{'Content-Type':'application/x-www-form-urlencoded'}
+    // })
+     return this.http.post(this.baseURL+'Accounts/upload-photo',fail);
+  }
+
+  removeMemberPhoto(id:number){
+    return this.http.delete(this.baseURL+`Accounts/deleted-photo/${id}`)
+  }
+  setMainPhoto(id:number){
+    return this.http.put(this.baseURL+`Accounts/set-main-photo/${id}`,null);
   }
 }

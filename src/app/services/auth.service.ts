@@ -19,8 +19,9 @@ export class AuthService {
       map((res)=>{
         const user=res;
         if(user){
-          localStorage.setItem('user',JSON.stringify(res));
-          this.currentUserSource.next(user)
+          this.setCurrentUser(user);
+          // localStorage.setItem('user',JSON.stringify(res));
+          // this.currentUserSource.next(user)
         }
      
       })
@@ -28,6 +29,7 @@ export class AuthService {
   }
 
   setCurrentUser(user:User){
+    localStorage.setItem('user',JSON.stringify(user));
     this.currentUserSource.next(user)
   }
 
@@ -37,9 +39,9 @@ export class AuthService {
       map((res:User)=>{
        if (res) {
         const user=res;
-      
-          localStorage.setItem('user',JSON.stringify(res));
-          this.currentUserSource.next(user)
+        this.setCurrentUser(user);
+          // localStorage.setItem('user',JSON.stringify(res));
+          // this.currentUserSource.next(user)
         
        }
   

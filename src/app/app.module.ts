@@ -18,6 +18,7 @@ import { MemberCardComponent } from './members/member-card/member-card.component
 import { ShareModule } from './modules/share.module';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     ListsComponent,
     MessagesComponent,
     NotFoundComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    PhotoEditorComponent
   ],
   imports: [
     BrowserModule,
