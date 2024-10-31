@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation  } from '@kolkov/ngx-gallery';
 import { Member } from 'src/app/models/member';
 import { MembersService } from 'src/app/services/members.service';
+import { environment } from 'src/assets/environments/environment';
 
 @Component({
   selector: 'app-member-detail',
@@ -14,6 +15,7 @@ export class MemberDetailComponent implements OnInit{
   member!:Member;
   galleryOptions!: NgxGalleryOptions[];
   galleryImages!: NgxGalleryImage[];
+  baseServicesURL:string=environment.baseServicesURL;
 
   constructor(private memberServices:MembersService
     ,private activteRoute:ActivatedRoute

@@ -19,6 +19,7 @@ import { ShareModule } from './modules/share.module';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 @NgModule({
@@ -36,6 +37,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     NotFoundComponent,
     MemberEditComponent,
     PhotoEditorComponent
+    
+
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { PhotoEditorComponent } from './members/photo-editor/photo-editor.compon
     BrowserAnimationsModule,
     ReactiveFormsModule,
     FormsModule,
-    ShareModule
+    ShareModule,
+    BsDatepickerModule.forRoot()
 
   ],
   providers: [

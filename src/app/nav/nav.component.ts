@@ -3,6 +3,7 @@ import { AuthService } from '../services/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AlertifyService } from '../services/alertify.service';
+import { environment } from 'src/assets/environments/environment';
 
 
 
@@ -16,6 +17,7 @@ export class NavComponent implements OnInit{
 
   loginForm:FormGroup;
   loggedIn:boolean=false;
+ 
 
   // currentUser$!:Observable<User |null>;
   constructor(

@@ -7,6 +7,7 @@ import { Member } from 'src/app/models/member';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { AuthService } from 'src/app/services/auth.service';
 import { MembersService } from 'src/app/services/members.service';
+import { environment } from 'src/assets/environments/environment';
 
 @Component({
   selector: 'app-member-edit',
@@ -18,6 +19,7 @@ export class MemberEditComponent implements OnInit {
   user!:User;
   member!:Member;
   editMemerForm:FormGroup;
+  baseServicesURL:string=environment.baseServicesURL;
 
   @HostListener('window:beforeunload',['$event'])
   unLoadNotification($event:any){

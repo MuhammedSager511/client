@@ -1,6 +1,6 @@
 <div class="card ">
     <div class="card-image-wrapper">
-        <img class="card-img-top" src="{{member.phoneUrl || '/assets/default.jpg'}} "  alt="{{member.userName}}" />
+        <img class="img-fluid rounded-top" [src]="member.phoneUrl ==baseServicesURL? '/assets/default.jpg' :member.phoneUrl "  alt="{{member.userName}}" />
 
         <ul class="list-inline animate member-icons text-center">
             <li class="list-inline-item">

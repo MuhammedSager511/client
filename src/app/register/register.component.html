@@ -3,44 +3,116 @@
     <hr>
     <form [formGroup]="regisrterForm" (ngSubmit)="register()" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" >
    
+        <div class="form-check form-check-inline">
+            <label class="form-check-label" for="">Select Gender</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender"  value="male" />
+            <label class="form-check-label" for="">male</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" formControlName="gender"  value="female" />
+            <label class="form-check-label" for="">female</label>
+        </div>
+        
+
         <div class="mb-3">
-            <!-- <label for="" class="form-label">User Name :</label> -->
-            <input formControlName="userName" 
-                type="text"
-                class="form-control"
-                placeholder="UserName"
-            />
-            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+            <input formControlName="userName"   type="text"  class="form-control"  placeholder="UserName"
+            [class.is-invalid]="_userName?.errors && _userName?.touched"
+            [class.is-valid]="!_userName?.errors" />
+            <ng-container  *ngIf="_userName?.errors ">
+                <small *ngIf="_userName?.errors?.['required'] && _userName?.touched"  class="form-text text-danger">UserName required *</small>
+                <small *ngIf="_userName?.errors?.['minlength'] && _userName?.touched"  class="form-text text-danger">   min Length 3</small>
+            </ng-container>   
         </div>
 
         <div class="mb-3">
-            
-            <input formControlName="email" 
-                type="email"
-                class="form-control"
-                placeholder="Email"
-            />
-            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+            <input formControlName="email"   type="text"  class="form-control"  placeholder="Email"
+            [class.is-invalid]="_email?.errors && _email?.touched"
+            [class.is-valid]="!_email?.errors" />
+            <ng-container  *ngIf="_email?.errors ">
+                <small *ngIf="_email?.errors?.['required'] && _email?.touched"  class="form-text text-danger">Email required *</small>
+                <small *ngIf="_email?.errors?.['pattern'] && _email?.touched"  class="form-text text-danger">
+                    please, enter valid email
+                </small>
+            </ng-container>
         </div>
 
         <div class="mb-3">
-           
-            <input formControlName="password"
-                type="password"
-                class="form-control"
-                placeholder="Password"
-               
-                autocomplete="new-password"
-            
-                 
-            />
-            <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+            <input formControlName="password"  type="password"  class="form-control"  placeholder="Password" autocomplete="new-password"
+            [class.is-invalid]="_password?.errors && _password?.touched"
+            [class.is-valid]="!_password?.errors"  />
+            <ng-container  *ngIf="_password?.errors ">
+                <small *ngIf="_password?.errors?.['required'] && _password?.touched"  class="form-text text-danger">Password required *</small>
+                <small *ngIf="_password?.errors?.['minlength'] && _password?.touched"  class="form-text text-danger">
+                   min Length 8
+                </small>
+            </ng-container>
         </div>
-             
+
+        <div class="mb-3">       
+            <input formControlName="confirmPassword"  type="password"  class="form-control"  placeholder="ConfirmPassword" autocomplete="new-password"   
+            [class.is-invalid]="_confirmPassword?.errors && _confirmPassword?.touched"
+            [class.is-valid]="!_confirmPassword?.errors"  />
+            <ng-container  *ngIf="_confirmPassword?.errors ">
+                <small *ngIf="_confirmPassword?.errors?.['required'] && _confirmPassword?.touched"  class="form-text text-danger">ConfirmPassword required *</small>
+                <small *ngIf="_confirmPassword?.errors?.['isMatching'] && _confirmPassword?.touched"  class="form-text text-danger">
+                   pwd & confiremtion not identical !
+                </small>
+            </ng-container>
+        </div>
+
+        <div class="mb-3">       
+            <input formControlName="dateOfBith"  type="date"  class="form-control"  placeholder="Date Of Birth"  
+            [class.is-invalid]="_dateOfBith?.errors && _dateOfBith?.touched"
+            [class.is-valid]="!_dateOfBith?.errors"  />
+            <ng-container  *ngIf="_dateOfBith?.errors ">
+                <small *ngIf="_dateOfBith?.errors?.['required'] && _dateOfBith?.touched"  class="form-text text-danger">dtat of birth required *</small> 
+            </ng-container>
+        </div>
+
+        <!-- <app-date-input formControlName="dateOfBith" [lable]='"dateOfBith"' type="data">
+            
+        </app-date-input> -->
+        <div class="mb-3">       
+            <input formControlName="KnownAs"  type="text"  class="form-control"  placeholder="Known As"    
+            [class.is-invalid]="_KnownAs?.errors && _KnownAs?.touched"
+            [class.is-valid]="!_KnownAs?.errors"  />
+            <ng-container  *ngIf="_KnownAs?.errors ">
+                <small *ngIf="_KnownAs?.errors?.['required'] && _KnownAs?.touched"  class="form-text text-danger">Known As required*</small> 
+                <small *ngIf="_KnownAs?.errors?.['maxlength'] && _KnownAs?.touched"  class="form-text text-danger">max length 5*</small> 
+                <small *ngIf="_KnownAs?.errors?.['minlength'] && _KnownAs?.touched"  class="form-text text-danger">min length 3 *</small> 
+            </ng-container>
+        </div>
+
+        <div class="mb-3">       
+            <input formControlName="country"  type="text"  class="form-control"  placeholder="country" 
+            [class.is-invalid]="_country?.errors && _country?.touched"
+            [class.is-valid]="!_country?.errors"  />
+            <ng-container  *ngIf="_country?.errors ">
+                <small *ngIf="_country?.errors?.['required'] && _country?.touched"  class="form-text text-danger">country required*</small> 
+            </ng-container>
+        </div>
+
+        <div class="mb-3">       
+            <input formControlName="city"  type="text"  class="form-control"  placeholder="city" 
+            [class.is-invalid]="_city?.errors && _city?.touched"
+            [class.is-valid]="!_city?.errors"  />
+            <ng-container  *ngIf="_city?.errors ">
+                <small *ngIf="_city?.errors?.['required'] && _city?.touched"  class="form-text text-danger">city required *</small> 
+            </ng-container>
+        </div>
+
         <div class="from-group text-center">
-          <button [disabled]="regisrterForm.invalid" type="submit" class="btn btn-success me-2">Register</button>
-          <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
+          <button [disabled]="regisrterForm.invalid" type="submit" class="btn btn-success me-2">
+            <i class="fa-solid fa-right-to-bracket"></i>
+            Register</button>
+          <button type="button" class="btn btn-warning" (click)="cancel()">
+            <i class="fa-solid fa-right-left"></i>
+            Cancel</button>
         </div>
     </form>
 </div>
  
+
+
