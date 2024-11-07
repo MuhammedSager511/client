@@ -35,13 +35,13 @@
               "node_modules/alertifyjs/build/css/alertify.min.css",
               "node_modules/alertifyjs/build/css/themes/bootstrap.min.css",
               "src/styles.scss",
-              "node_modules/ngx-spinner/animations/timer.css"
+              "node_modules/ngx-spinner/animations/ball-clip-rotate-multiple.css"
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.min.js",
               "node_modules/@fortawesome/fontawesome-free/js/all.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/alertifyjs/src/js/alert.js"
+              "node_modules/bootstrap/dist/js/bootstrap.min.js", 
+                "node_modules/alertifyjs/build/alertify.min.js"
             ],
             "allowedCommonJsDependencies": [
               "alertifyjs"

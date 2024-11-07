@@ -50,8 +50,9 @@ export class PhotoEditorComponent implements OnInit {
     const fromData = new FormData();
     fromData.append('file', this.selectdFile, this.selectdFile.name)
     this.memberServices.uploadMemberPhoto(fromData).subscribe({
-      next: (res) => {
-        this.getMember();
+      next: (res:any) => {
+        this.member.photos.push(res)
+        // this.getMember();
         this.alert.success('upload user profile image succssfully')
 
         this.reset()

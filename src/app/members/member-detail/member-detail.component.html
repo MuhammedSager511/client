@@ -2,7 +2,7 @@
 <div class="row" *ngIf="member">
     <div class="col-4">
         <div class="card">
-            <img class="card-img-top img-thumbnail" [src]="member.phoneUrl ==baseServicesURL? '/assets/default.jpg' :member.phoneUrl "  alt="{{member.userName}}" />
+            <img class="card-img-top img-thumbnail"[src]="(member.phoneUrl === baseServicesURL || member.phoneUrl === null) ? '/assets/default.jpg' : member.phoneUrl"  alt="{{member.userName}}" />
             <div class="card-body">
                <div>
                  <strong>Location:</strong>
@@ -16,12 +16,12 @@
 
               <div>
                 <strong>Member Last Active:</strong>
-                <p>{{member.lastActive}}</p>
+                <p>{{member.lastActive | timeago}}</p>
               </div>
 
               <div>
                 <strong>Member since:</strong>
-                <p>{{member.created}}</p>
+                <p>{{member.created | date :'dd MMM yyyy'}}</p>
               </div>
 
             </div>
@@ -41,7 +41,7 @@
 
     <div class="col-8">
       <tabset class="member-tabset">
-        <tab heading="About {{member.userName}}" id="tab1">
+         <tab  heading="About {{member.userName}}" id="tab1">
           <h4>Description:</h4>
           <p>{{member.introduction}}</p>
           <h4>Looking For:</h4>

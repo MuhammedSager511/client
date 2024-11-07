@@ -18,7 +18,7 @@ export class NavComponent implements OnInit{
   loginForm:FormGroup;
   loggedIn:boolean=false;
  
-
+  baseServicesURL:string=environment.baseServicesURL;
   // currentUser$!:Observable<User |null>;
   constructor(
     public authServices:AuthService,

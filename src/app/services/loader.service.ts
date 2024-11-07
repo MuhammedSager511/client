@@ -11,7 +11,7 @@ loaderRquestCount=0;
   loader(){
     this.loaderRquestCount++;
     this.spinnerServices.show(undefined,{
-       type :"timer",
+       type :"ball-clip-rotate-multiple",
        bdColor : "rgba(255, 255, 255, 0)",
        color : "#333333",
        size:"medium"

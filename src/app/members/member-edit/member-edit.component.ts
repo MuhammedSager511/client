@@ -41,6 +41,7 @@ export class MemberEditComponent implements OnInit {
       }
     })
     this.editMemerForm=this.fb.group({
+
       introduction:["",[Validators.required]],
       lookingFor:["",[Validators.required]],
       city:["",[Validators.required]],
@@ -60,6 +61,7 @@ export class MemberEditComponent implements OnInit {
         if(res){
           this.member=res;
           this.editMemerForm.setValue({
+   
             introduction:this.member.introduction,
             lookingFor:this.member.lookingFor,
             city:this.member.city,
@@ -77,6 +79,7 @@ export class MemberEditComponent implements OnInit {
         this.loadMember();
         this.alert.success('Update Successfully')
         console.log(res);
+        
       },
       error:(err)=>{
         this.alert.error(err.message);

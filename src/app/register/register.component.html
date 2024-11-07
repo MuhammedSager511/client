@@ -62,18 +62,41 @@
             </ng-container>
         </div>
 
-        <div class="mb-3">       
-            <input formControlName="dateOfBith"  type="date"  class="form-control"  placeholder="Date Of Birth"  
-            [class.is-invalid]="_dateOfBith?.errors && _dateOfBith?.touched"
-            [class.is-valid]="!_dateOfBith?.errors"  />
-            <ng-container  *ngIf="_dateOfBith?.errors ">
-                <small *ngIf="_dateOfBith?.errors?.['required'] && _dateOfBith?.touched"  class="form-text text-danger">dtat of birth required *</small> 
+        <!-- <div class="mb-3">       
+            <input formControlName="dateOfBirth" type="date" class="form-control" placeholder="Date Of Birth"  
+                [class.is-invalid]="_dateOfBirth?.errors && _dateOfBirth?.touched"
+                [class.is-valid]="!_dateOfBirth?.errors" />
+            <ng-container *ngIf="_dateOfBirth?.errors">
+                <small *ngIf="_dateOfBirth?.errors?.['required'] && _dateOfBirth?.touched" class="form-text text-danger">
+                   
+                </small>
+                <small *ngIf="_dateOfBirth?.errors?.['dateInvalid'] && _dateOfBirth?.touched" class="form-text text-danger">
+                
+                </small>
+            </ng-container>
+        </div> -->
+        
+        <div class="mb-3">
+            <input 
+                id="dateOfBirth" 
+                formControlName="dateOfBirth" 
+                type="date" 
+                class="form-control" 
+                placeholder="Date Of Birth"  
+                [class.is-invalid]="_dateOfBirth?.errors && _dateOfBirth?.touched"
+                [class.is-valid]="!_dateOfBirth?.errors" 
+            />
+            <ng-container *ngIf="_dateOfBirth?.errors">
+                <small *ngIf="_dateOfBirth?.errors?.['required'] && _dateOfBirth?.touched" class="form-text text-danger">
+                    Data Of Brith required 
+                </small>
+                <small *ngIf="_dateOfBirth?.errors?.['dateInvalid'] && _dateOfBirth?.touched" class="form-text text-danger">
+                    Data Of Brith In Valid 
+                </small>
             </ng-container>
         </div>
+        
 
-        <!-- <app-date-input formControlName="dateOfBith" [lable]='"dateOfBith"' type="data">
-            
-        </app-date-input> -->
         <div class="mb-3">       
             <input formControlName="KnownAs"  type="text"  class="form-control"  placeholder="Known As"    
             [class.is-invalid]="_KnownAs?.errors && _KnownAs?.touched"
@@ -114,5 +137,4 @@
     </form>
 </div>
  
-
 

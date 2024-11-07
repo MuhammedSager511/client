@@ -36,7 +36,8 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     MessagesComponent,
     NotFoundComponent,
     MemberEditComponent,
-    PhotoEditorComponent
+    PhotoEditorComponent,
+ 
     
 
   ],

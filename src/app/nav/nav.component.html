@@ -22,7 +22,7 @@
       <div class="dropdown"  *ngIf="(authServices.currentUser$ | async) as user">
 
         <!-- <img [src]="user.photoUrl" class="img-fluid rounded-top imgProfile" [alt]="user.userName" /> -->
-        <img [src]="user.photoUrl|| '/assets/default.jpg'" class="img-fluid rounded-top imgProfile" [alt]="user.userName" />
+        <img [src]="user.photoUrl === baseServicesURL ||user.photoUrl===null ? '/assets/default.jpg' :user.photoUrl " class="img-fluid  imgProfile navImg" [alt]="user.userName" />
 
 
         <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,7 +34,7 @@
             Edit Profile</a>
           </li>
           <li><a class="dropdown-item" (click)="logout()" style="cursor: pointer;">
-            <i class="fas fa-sign-out-alt"></i> 
+            <i class="fa-regular fa-circle-left"></i>
             Logout</a>
           </li>
        
@@ -56,7 +56,9 @@
           </div>
           <div class="col-md-4">
             <div class="text-end">
-              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-outline-light me-2">Login</button>
+              <button [disabled]="loginForm.invalid" type="submit" class="btn btn-outline-light me-2">
+                <i class="fa-regular fa-circle-right"></i>
+                Login</button>
               <!-- <button type="button" class="btn btn-warning">Sign-up</button> -->
             </div>
           </div>
