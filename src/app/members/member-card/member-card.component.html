@@ -1,6 +1,6 @@
 <div class="card ">
     <div class="card-image-wrapper">
-        <img class="img-fluid rounded-top" [src]="member.phoneUrl ==baseServicesURL? '/assets/default.jpg' :member.phoneUrl "  alt="{{member.userName}}" />
+        <img class="img-fluid rounded-top" [src]="member.photoUrl ==baseServicesURL? '/assets/default.jpg' :member.photoUrl "  alt="{{member.userName}}" />
 
         <ul class="list-inline animate member-icons text-center">
             <li class="list-inline-item">
@@ -9,7 +9,7 @@
                 </button>                
             </li>
             <li class="list-inline-item">
-                <button type="button" class="btn btn-warning">
+                <button type="button" class="btn btn-warning" (click)="addLike(member)">
                     <i class="fas fa-heart"></i>
                 </button>   
             </li>
@@ -29,6 +29,6 @@
             {{member.userName}} - {{member.age}} 
         </h6>
         <!-- <p class="card-text text-muted text-center"><i class="fa-solid fa-location-dot"></i> {{member.age}} </p> -->
-        <p class="card-text text-muted "><i class="fa-solid fa-location-dot"></i> {{member.city || 'Aleppo'}} </p>
+        <p class="card-text text-muted "><i class="fa-solid fa-location-dot"></i> {{member.city }} </p>
     </div>
 </div>

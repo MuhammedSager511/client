@@ -41,6 +41,17 @@ export class MembersService {
   })
 }
 
+  addLike(userName:string){
+   return this.http.post(this.baseURL+'Likes/add-like/'+userName,{});
+  }
+  getLikes(Pridicate:string,pageNumber:number,pageSize:number){
+    let params=this.getPaginationHeaders(pageNumber,pageSize);
+    params=params.append('Pridicate',Pridicate);
+    // return this.http.get(this.baseURL+'Likes/get-user-like')
+  return this.getPaginationResult<Partial<Member[]>>(this.baseURL+'Likes/get-user-like',params)
+  }
+
+
   setUserParams(param:UserParams){
     this.userParams=param;
   }
