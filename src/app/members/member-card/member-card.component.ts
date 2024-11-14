@@ -1,4 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Member } from 'src/app/models/member';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { MembersService } from 'src/app/services/members.service';
@@ -10,7 +12,7 @@ import { environment } from 'src/assets/environments/environment';
   styleUrls: ['./member-card.component.scss']
 })
 export class MemberCardComponent {
-
+  @ViewChild('memberTabs') memberTabs!:TabsetComponent
   @Input() member!:Member;
   baseServicesURL:string=environment.baseServicesURL;
   constructor(private memberService:MembersService,private alert:AlertifyService){
@@ -27,5 +29,10 @@ export class MemberCardComponent {
         
       }
     })
+  }
+  slectTab(tabId: number) {
+    if (this.memberTabs && this.memberTabs.tabs[tabId]) {
+      this.memberTabs.tabs[tabId].active = true;
+    }
   }
 }

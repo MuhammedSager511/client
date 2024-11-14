@@ -20,6 +20,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { MembarMessagesComponent } from './members/membar-messages/membar-messages.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     NotFoundComponent,
     MemberEditComponent,
     PhotoEditorComponent,
+    MembarMessagesComponent,
  
     
 

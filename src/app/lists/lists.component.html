@@ -8,10 +8,12 @@
             <div class="btn-group" name="predicate">
                 <button class="btn btn-warning" btnRadio="liked"
                 [(ngModel)]="Pridicate" (click)="loadLikes()">
-                  Members I like
+                <i class="fas fa-heart"></i> 
+                Members I like
                 </button>
                 <button class="btn btn-warning" btnRadio="likedBy"
                 [(ngModel)]="Pridicate" (click)="loadLikes()">
+                <i class="fas fa-users"></i>
                 Members who like me
                 </button>
             </div>
