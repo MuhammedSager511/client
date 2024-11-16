@@ -4,6 +4,7 @@ import { TabDirective, TabsetComponent } from 'ngx-bootstrap/tabs';
 import { Member } from 'src/app/models/member';
 import { AlertifyService } from 'src/app/services/alertify.service';
 import { MembersService } from 'src/app/services/members.service';
+import { PresenceService } from 'src/app/services/presence.service';
 import { environment } from 'src/assets/environments/environment';
 
 @Component({
@@ -15,7 +16,10 @@ export class MemberCardComponent {
   @ViewChild('memberTabs') memberTabs!:TabsetComponent
   @Input() member!:Member;
   baseServicesURL:string=environment.baseServicesURL;
-  constructor(private memberService:MembersService,private alert:AlertifyService){
+
+  constructor(private memberService:MembersService
+             ,private alert:AlertifyService
+             ,public presence:PresenceService){
 
   }
   addLike(member:Member){

@@ -26,7 +26,10 @@
 
     <div class="card-body">
         <h6 class="card-title  md-1">
-            <i class="fas fa-user mr-2"></i>
+            <span [class.is-online]="(presence.onlineUsers$ |async).includes(member.userName)">
+                <i class="fas fa-circle-dot mx-1"></i>
+            </span>
+           
             {{member.userName}} - {{member.age}} 
         </h6>
         <!-- <p class="card-text text-muted text-center"><i class="fa-solid fa-location-dot"></i> {{member.age}} </p> -->

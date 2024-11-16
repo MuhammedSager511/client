@@ -15,18 +15,16 @@ export class MembarMessagesComponent implements OnInit{
   @Input()   message!:Message[]
   @Input() userName!:string;
   messageContent!:string
-  constructor(private messageServices:MessageService){
+  constructor(public messageServices:MessageService){
 
   }
   ngOnInit(): void {
   }
 
   sendMessage(){
-    this.messageServices.sendMessage(this.userName,this.messageContent).subscribe({
-      next:(res)=>{
-        this.message.push(res)
-        this.messageForm.reset()
-      }    
-    })
+    this.messageServices.sendMessage(this.userName,this.messageContent).then(message=>{
+      this.messageForm.reset()
+    }
+      )
   }
 }
