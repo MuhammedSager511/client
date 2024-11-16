@@ -2,7 +2,7 @@
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
       <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-        <img src="assets/chatlogo.webp" class="bi me-2" width="50" height="50" role="img" aria-label="Bootstrap"
+        <img src="assets/logoo.webp" class="bi me-2" width="50" height="50" role="img" aria-label="Bootstrap"
           style="border-radius: 50%;">
 
       </a>
@@ -11,9 +11,11 @@
        >
 
         <ng-container  *ngIf="(authServices.currentUser$ | async)">
-          <li><a routerLink="/member" routerLinkActive="text-white" class="nav-link px-2 text-secondary">Matchs</a></li>
-          <li><a routerLink="/lists"  routerLinkActive="text-white" class="nav-link px-2 text-secondary">List</a></li>
-          <li><a routerLink="/message"  routerLinkActive="text-white" class="nav-link px-2 text-secondary">Message</a></li>  
+          <li><a routerLink="/member" routerLinkActive="text-white" class="nav-link px-2 text-secondary"> <i class="fas fa-users"></i> People</a></li>
+          <li><a routerLink="/lists"  routerLinkActive="text-white" class="nav-link px-2 text-secondary"><i class="fas fa-thumbs-up"></i> Likes</a></li>
+          <li><a routerLink="/message"  routerLinkActive="text-white" class="nav-link px-2 text-secondary"><i class="fa-regular fa-comment-dots"></i> Message</a></li>  
+          <li><a *appHasRole='["Admin","Moderator"]' routerLink="/admin"  routerLinkActive="text-white" class="nav-link px-2 text-secondary"><i class="fa-solid fa-circle-user"></i> Admin</a></li>  
+
         </ng-container>
         
      </ul>

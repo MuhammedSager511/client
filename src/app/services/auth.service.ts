@@ -29,6 +29,9 @@ export class AuthService {
   }
 
   setCurrentUser(user:User){
+    user.roles=[];
+    const roles=this.getDecodeToken(user.token).role;
+    Array.isArray(roles)? user.roles=roles:user.roles.push(roles)
     localStorage.setItem('user',JSON.stringify(user));
     this.currentUserSource.next(user)
   }
@@ -54,5 +57,8 @@ export class AuthService {
     this.currentUserSource.next(null)
   }
 
+  getDecodeToken(token:string){
+    return JSON.parse(atob(token.split('.')[1]))
+  }
 
 }

@@ -21,6 +21,10 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
 import { PhotoEditorComponent } from './members/photo-editor/photo-editor.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { MembarMessagesComponent } from './members/membar-messages/membar-messages.component';
+import { AdminPanelComponent } from './admin/admin-panel/admin-panel.component';
+import { HasRoleDirective } from './_directives/has-role.directive';
+import { AdminManagmentComponent } from './admin/admin-managment/admin-managment.component';
+import { ModelRolesComponent } from './model/model-roles/model-roles.component';
 
 
 @NgModule({
@@ -39,6 +43,11 @@ import { MembarMessagesComponent } from './members/membar-messages/membar-messag
     MemberEditComponent,
     PhotoEditorComponent,
     MembarMessagesComponent,
+    AdminPanelComponent,
+    HasRoleDirective,
+    
+    AdminManagmentComponent,
+         ModelRolesComponent,
  
     
 
